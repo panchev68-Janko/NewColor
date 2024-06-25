@@ -1,0 +1,32 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "simulator/**": true
+    },
+    "hide-files.files": [],
+    "files.associations": {
+        "*.md": "markdown",
+        "app_touchgfx.h": "c",
+        "fsmc.h": "c",
+        "stdio.h": "c",
+        "stdint.h": "c",
+        "stddef.h": "c",
+        "gpio.h": "c",
+        "usart.h": "c",
+        "tim.h": "c",
+        "i2c.h": "c",
+        "spi.h": "c",
+        "main.h": "c",
+        "rtc.h": "c",
+        "dma.h": "c",
+        "crc.h": "c",
+        "cmsis_os.h": "c",
+        "stdbool.h": "c",
+        "task.h": "c"
+    }
+}
