@@ -26,6 +26,7 @@ protected:
 private:
 
     uint32_t _positionX = 0;
+    virtual void buttonClickEvent () override;
 };
 
 #endif        // SCREENVIEW_HPP

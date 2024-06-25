@@ -5,7 +5,8 @@
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
 
-screenViewBase::screenViewBase()
+screenViewBase::screenViewBase() :
+    flexButtonCallback(this, &screenViewBase::flexButtonCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 320);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -23,6 +24,13 @@ screenViewBase::screenViewBase()
     textureMapperAngleCompass.setAngles(0.0f, 0.0f, 0.0f);
     textureMapperAngleCompass.setRenderingAlgorithm(touchgfx::TextureMapper::NEAREST_NEIGHBOR);
     add(textureMapperAngleCompass);
+
+    flexButton1.setBoxWithBorderPosition(0, 0, 182, 50);
+    flexButton1.setBorderSize(5);
+    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    flexButton1.setAction(flexButtonCallback);
+    flexButton1.setPosition(208, 18, 182, 50);
+    add(flexButton1);
 }
 
 screenViewBase::~screenViewBase()
@@ -33,4 +41,15 @@ screenViewBase::~screenViewBase()
 void screenViewBase::setupScreen()
 {
 
+}
+
+void screenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &flexButton1)
+    {
+        //buttonClickEvent
+        //When flexButton1 clicked call virtual function
+        //Call buttonClickEvent
+        buttonClickEvent();
+    }
 }

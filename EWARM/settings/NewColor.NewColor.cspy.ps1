@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\EWARM\settings\NewColor.NewColor.general.xcl" --backend -f "X:\Janko\EWARM\settings\NewColor.NewColor.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.general.xcl" --backend -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.driver.xcl" 
 }
 else
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\EWARM\settings\NewColor.NewColor.general.xcl" --debug_file=$debugfile --backend -f "X:\Janko\EWARM\settings\NewColor.NewColor.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.general.xcl" --debug_file=$debugfile --backend -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.driver.xcl" 
 }

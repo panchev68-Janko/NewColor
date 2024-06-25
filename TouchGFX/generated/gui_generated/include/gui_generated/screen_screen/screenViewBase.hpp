@@ -9,6 +9,7 @@
 #include <gui/screen_screen/screenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/TextureMapper.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
 
 class screenViewBase : public touchgfx::View<screenPresenter>
 {
@@ -16,6 +17,14 @@ public:
     screenViewBase();
     virtual ~screenViewBase();
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void buttonClickEvent()
+    {
+        // Override and implement this function in screen
+    }
 
 protected:
     FrontendApplication& application() {
@@ -27,8 +36,19 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::TextureMapper textureMapperAngleCompass;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<screenViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 

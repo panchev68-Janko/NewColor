@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\EWARM\settings\NewColor.NewColor.general.xcl" --backend -f "X:\Janko\EWARM\settings\NewColor.NewColor.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.general.xcl" --backend -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\EWARM\settings\NewColor.NewColor.general.xcl" "--debug_file=%~1" --backend -f "X:\Janko\EWARM\settings\NewColor.NewColor.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.general.xcl" "--debug_file=%~1" --backend -f "X:\Janko\NewColor\EWARM\settings\NewColor.NewColor.driver.xcl" 
 
 @echo off 
 :end

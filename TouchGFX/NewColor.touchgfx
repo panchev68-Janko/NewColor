@@ -22,9 +22,58 @@
             "YOrigo": 76.0,
             "ZOrigo": 1000.0,
             "CameraDistance": 1000.0
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1",
+            "X": 208,
+            "Y": 18,
+            "Width": 182,
+            "Height": 50,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 182,
+                "Height": 50,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "buttonClickEvent",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "flexButton1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "buttonClickEvent"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

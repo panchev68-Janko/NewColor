@@ -22,3 +22,7 @@ void screenView::updateCompassNeedle (uint32_t value)
     textureMapperAngleCompass.setAngles (0, 0, angle);
     textureMapperAngleCompass.invalidate ();
 }
+
+void screenView::buttonClickEvent ()
+{
+}
