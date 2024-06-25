@@ -18,3 +18,8 @@ void screenPresenter::onCompassAngleChanged (uint32_t value)
 {
     view.updateCompassNeedle (value);
 }
+
+void screenPresenter::setValue (uint32_t value)
+{
+    model->setValue (value);
+}

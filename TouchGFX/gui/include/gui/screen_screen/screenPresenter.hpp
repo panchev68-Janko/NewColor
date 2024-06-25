@@ -28,6 +28,10 @@ public:
 
     virtual ~screenPresenter () {}
 
+    /// \brief Set the Value
+    /// \param value
+    void setValue (uint32_t value);
+
 private:
 
     screenPresenter ();

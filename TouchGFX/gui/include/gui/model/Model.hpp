@@ -16,6 +16,8 @@ public:
 
     void tick ();
 
+    void setValue (uint32_t value);
+
 protected:
 
     ModelListener * modelListener;

@@ -25,4 +25,5 @@ void screenView::updateCompassNeedle (uint32_t value)
 
 void screenView::buttonClickEvent ()
 {
+    presenter->setValue (123);
 }

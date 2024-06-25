@@ -21,3 +21,8 @@ void Model::tick ()
     }
     // ...
 }
+
+void Model::setValue (uint32_t value)
+{
+    setFromTouchGFX (value);
+}
