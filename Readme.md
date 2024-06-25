@@ -261,7 +261,7 @@ void screenView::updateCompassNeedle (uint32_t value)
    ![AddButtonFunc](assets/AddButtonFunc.gif) 
 3. Пренаписваме фукцията  `void buttonClickEvent ()` в [screenView.hpp](https://github.com/panchev68-Janko/NewColor/blob/c1f3a148c92330d78fb3040559bc228dc7980f83/TouchGFX/gui/include/gui/screen_screen/screenView.hpp#L29C5-L29C47)
 4. Добавяме функция в `screenPresenter`  която ще изикаме от `screen` в случай че бутонът бъде натиснат
-   [```void setValue(uint32_t value);```]() 
-5. 
+   [```void setValue(uint32_t value);```](https://github.com/panchev68-Janko/NewColor/blob/402bd98b53bf9d1572ec0b732bc3e487390e0cbb/TouchGFX/gui/src/screen_screen/screenPresenter.cpp#L22) 
+5. Тя извиква функция от model [void Model::setValue (uint32_t value)](https://github.com/panchev68-Janko/NewColor/blob/402bd98b53bf9d1572ec0b732bc3e487390e0cbb/TouchGFX/gui/src/model/Model.cpp#L25)
 
 ![Janko2](assets/Janko2.png) 
