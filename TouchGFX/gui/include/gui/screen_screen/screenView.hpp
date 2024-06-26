@@ -27,6 +27,7 @@ private:
 
     uint32_t _positionX = 0;
     virtual void buttonClickEvent () override;
+    float processValue (uint32_t value) const;
 };
 
 #endif        // SCREENVIEW_HPP

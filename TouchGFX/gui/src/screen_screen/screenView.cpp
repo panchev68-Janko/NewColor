@@ -16,9 +16,7 @@ void screenView::tearDownScreen ()
 
 void screenView::updateCompassNeedle (uint32_t value)
 {
-    // TODO: convert `value` to float ...
-
-    float angle;
+    float angle (processValue (value));
     textureMapperAngleCompass.setAngles (0, 0, angle);
     textureMapperAngleCompass.invalidate ();
 }
@@ -26,4 +24,8 @@ void screenView::updateCompassNeedle (uint32_t value)
 void screenView::buttonClickEvent ()
 {
     presenter->setValue (123);
+}
+
+float screenView::processValue (uint32_t value) const
+{
 }
