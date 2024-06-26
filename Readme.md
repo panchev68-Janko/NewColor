@@ -286,41 +286,20 @@ void screenView::updateCompassNeedle (uint32_t value)
 
 това статва във файлът [TouchGFX_retarget.cpp](https://github.com/panchev68-Janko/NewColor/blob/main/PROJECT/BSP/TouchGFX_retarget.cpp)
 
-
-
-след това трябва да извикаш функцията `touchgfx::OSWrappers::signalVSync ();` на всяка 1 mS
-
-при мен това става в задача 
-
+след това трябва да извикаш функцията `touchgfx::OSWrappers::signalVSync ();` на всяка 1 mS. Най-лесно става като го стартираш в отделна задача
 ```cpp
-void startTouchGFX ()
+void taskFnTouchGFXSync(void *)
 {
-    auto taskVSync = [] {
-        for (;;)
-        {
-            touchgfx::OSWrappers::signalVSync ();
-            vTaskDelay (1);
-        }
-    };
-
-    if (BSP::Display::getInstance ().init () == false) assert (0);
-    if (FreeRTOS::Task::run ({"TOUCHGFX_TASK", [] { TouchGFX_Task (nullptr); }, 2048, 0}) == nullptr) assert (0);
-    if (FreeRTOS::Task::run ({"TOUCHGFX_VSYNC", taskVSync, 128, 0}) == nullptr) assert (0);
-}
-
-```
-
-това е функцията 
-
-```cpp
-    auto taskFn(void *)
+    for (;;)
     {
-        for (;;)
-        {
-            touchgfx::OSWrappers::signalVSync ();
-            vTaskDelay (1);
-        }
+        touchgfx::OSWrappers::signalVSync ();
+        vTaskDelay (1);
     }
-
+}
 ```
+
+
+
+
+
 
