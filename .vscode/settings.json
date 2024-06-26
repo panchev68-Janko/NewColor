@@ -27,6 +27,10 @@
         "crc.h": "c",
         "cmsis_os.h": "c",
         "stdbool.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "tft_colors_typedef.h": "c",
+        "ili9488.h": "c",
+        "stm32f4xx_hal_def.h": "c",
+        "list.h": "c"
     }
 }
