@@ -110,18 +110,21 @@ namespace BSP
         /// \return The length of the copied data in bytes
         void transmitBlock (const void * src, uint32_t x, uint32_t y, size_t width, size_t height)
         {
-            // auto size = setWindow (x, y, w, h);
-            // DriverBase::setTransmitActive (1);
-            // Interface::writeblock (src, size);
+            auto size         = setWindow (x, y, width, height);
+            _transmitIsActive = true;
+            DisplayInterface::writeblock (src, size);
         }
 
         void transferCpltCallback ()
         {
+            _transmitIsActive = false;
         }
 
     private:
 
-        void setWindow (uint32_t x, uint32_t y, uint32_t w, uint32_t h)
+        bool _transmitIsActive = false;
+
+        size_t setWindow (uint32_t x, uint32_t y, uint32_t w, uint32_t h)
         {
             auto setPosReg = [this] (uint8_t reg, uint16_t start, uint16_t end) {
                 DisplayInterface::writeReg (reg);
@@ -132,6 +135,7 @@ namespace BSP
             setPosReg (0x2a, x, x + w - 1);           // Column Address Set (2Ah) https://www.hpinfotech.ro/ILI9488.pdf#page=174&zoom=auto,-273,110
             setPosReg (0x2b, y, y + h - 1);           // PASET (Page Address Set) https://www.hpinfotech.ro/ILI9488.pdf#page=177&zoom=auto,-273,800
             DisplayInterface::writeReg (0x2c);        // Memory Write (2Ch) https://www.hpinfotech.ro/ILI9488.pdf#page=179&zoom=auto,-273,778
+            return (w * h);
         }
     };
 }        // namespace BSP

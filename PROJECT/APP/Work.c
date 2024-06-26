@@ -20,9 +20,9 @@ uint32_t getAngleCompass (void)
     return angleCompass;
 }
 
-void returnFromTouchGFX (uint32_t var)
+void setFromTouchGFX (uint32_t value)
 {
-    varRead = var;
+    varRead = value;
 }
 
 void StartDefaultTask (void const * argument)

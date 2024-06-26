@@ -90,6 +90,7 @@ void ili9488_Initial (void)
     Write_Data_U16 (0x16);
     Write_Data_U16 (0x1A);
     Write_Data_U16 (0x0F);
+
     // NGAMCTRL(Negative Gamma Control)
     Write_Cmd (0XE1);
     Write_Data_U16 (0x00);

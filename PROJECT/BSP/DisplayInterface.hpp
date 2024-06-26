@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h"
+#include "Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h"
 #include "assert.h"
 #include "stm32f4xx_hal_dma.h"
 
@@ -40,7 +42,11 @@ namespace BSP
             auto callback = [] (__DMA_HandleTypeDef * hdma) { _instance->completeCallback (hdma); };
             auto result   = HAL_DMA_RegisterCallback (_dmaHandle, HAL_DMA_CallbackIDTypeDef::HAL_DMA_XFER_CPLT_CB_ID, callback) == HAL_OK;
             assert (result);
-                }
+
+            // create the semaphore
+            _semaphoreHandle = xSemaphoreCreateBinary ();
+            assert (_semaphoreHandle != nullptr);
+        }
 
         /// \brief De-initialize the display interface
         virtual void deinit ()
@@ -90,18 +96,21 @@ namespace BSP
 
         virtual bool waitForCompleted (uint32_t timeout)
         {
-            // TODO Use semaphore
+            return (xSemaphoreTake (_semaphoreHandle, timeout) == pdTRUE);
         }
 
     private:
 
         void completeCallback (__DMA_HandleTypeDef * hdma)
         {
+            auto result = xSemaphoreGive (_semaphoreHandle);
+            assert (result == pdTRUE);
         }
 
         DMA_HandleTypeDef * _dmaHandle;
         uint32_t _regAddress;
         uint32_t _dataAddress;
         static inline DisplayInterface * _instance = nullptr;
+        SemaphoreHandle_t _semaphoreHandle;
     };
 }        // namespace BSP

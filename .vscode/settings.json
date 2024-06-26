@@ -31,6 +31,7 @@
         "tft_colors_typedef.h": "c",
         "ili9488.h": "c",
         "stm32f4xx_hal_def.h": "c",
-        "list.h": "c"
+        "list.h": "c",
+        "queue.h": "c"
     }
 }
