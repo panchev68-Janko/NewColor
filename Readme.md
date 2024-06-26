@@ -310,3 +310,17 @@ void startTouchGFX ()
 
 ```
 
+това е функцията 
+
+```cpp
+    auto taskFn(void *)
+    {
+        for (;;)
+        {
+            touchgfx::OSWrappers::signalVSync ();
+            vTaskDelay (1);
+        }
+    }
+
+```
+
