@@ -115,12 +115,19 @@ namespace BSP
             DisplayInterface::writeblock (src, size);
         }
 
-        void transferCpltCallback ()
+        /// \brief Get the Transmit Active
+        /// \return
+        bool getTransmitActive () const
         {
-            _transmitIsActive = false;
+            return _transmitIsActive;
         }
 
     private:
+
+        void onTransferCplt () override
+        {
+            _transmitIsActive = false;
+        }
 
         bool _transmitIsActive = false;
 

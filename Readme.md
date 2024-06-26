@@ -36,7 +36,7 @@ void Model::tick ()
 
 `Model::tick ()` се изпълнява при от TouchGFX библиотеката и се извиква на 1 mS.
 
-в фукцията проверяваме за промяна на стойността върната от `getAngleCompass` и ако има промяна извиквам `modelListener->onCompassAngleChanged (angleCompass);`
+в фукцията проверяваме за промяна на стойността върната от `getAngleCompass` и ако има промяна извиквам `modelListener->onCompassAngleChanged (angleCompass);` - [source](https://github.com/panchev68-Janko/NewColor/blob/a22fef577f6b47db1e9f124e0b31943c8df326f2/TouchGFX/gui/src/model/Model.cpp#L17)
 
 тя оведомява **екранът който е показан на дисплея** че стойността е променена.  
 

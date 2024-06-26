@@ -99,6 +99,11 @@ namespace BSP
             return (xSemaphoreTake (_semaphoreHandle, timeout) == pdTRUE);
         }
 
+        /// \brief Transmit complete event
+        /// \return
+        virtual bool onTransferCplt ()
+        {}
+
     private:
 
         void completeCallback (__DMA_HandleTypeDef * hdma)
