@@ -288,3 +288,25 @@ void screenView::updateCompassNeedle (uint32_t value)
 
 
 
+след това трябва да извикаш функцията `touchgfx::OSWrappers::signalVSync ();` на всяка 1 mS
+
+при мен това става в задача 
+
+```cpp
+void startTouchGFX ()
+{
+    auto taskVSync = [] {
+        for (;;)
+        {
+            touchgfx::OSWrappers::signalVSync ();
+            vTaskDelay (1);
+        }
+    };
+
+    if (BSP::Display::getInstance ().init () == false) assert (0);
+    if (FreeRTOS::Task::run ({"TOUCHGFX_TASK", [] { TouchGFX_Task (nullptr); }, 2048, 0}) == nullptr) assert (0);
+    if (FreeRTOS::Task::run ({"TOUCHGFX_VSYNC", taskVSync, 128, 0}) == nullptr) assert (0);
+}
+
+```
+
